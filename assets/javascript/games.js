@@ -1,36 +1,42 @@
 characters = [
     {
-        name = "Winston",
-        image= "assets/images/winston.jpg",
-        attack = 30,
-        counterAttack = 25,
-        health = 300,
+        name: "Winston",
+        image: "assets/images/winston.jpg",
+        attack: 30,
+        counterAttack: 25,
+        health: 300
     },
     {
-        name = "Reaper",
-        image= "assets/images/reaper.jpg",
-        attack = 20,
-        counterAttack = 35,
-        health = 200,
+        name: "Reaper",
+        image: "assets/images/reaper.jpg",
+        attack: 20,
+        counterAttack: 35,
+        health: 200
     },
     {
-        name = "Mercy",
-        image= "assets/images/mercy.jpg",
-        attack = 10,
-        counterAttack = 15,
-        health = 150,
+        name: "Mercy",
+        image: "assets/images/mercy.jpg",
+        attack: 10,
+        counterAttack: 15,
+        health: 150
     },
     {
-        name = "Reinhardt",
-        image= "assets/images/reinhardt.jpg",
-        attack = 15,
-        counterAttack = 15,
-        health = 400,
+        name: "Reinhardt",
+        image: "assets/images/reinhardt.jpg",
+        attack: 15,
+        counterAttack: 15,
+        health: 400
     },
 ];
 
-// append characters into html (characters class)
+for (var i = 0; i < characters.length; i++) {
+    $(this.name).load().addClass(".characterName").appendTo(".characterName");
+    $(this.image).load().addClass(".img").appendTo(".img");
+    $(this.health).load().addClass(".healthPoints").appendTo(".healthPoints");
+};
 
+// append characters into html (characters class)
+// classes are img, healthPoints, characterName
 //change class on click of character
 //send other three characters to enemy character section (enemiesAvailable id)
 //change class or id of enemy chosen to move to defender zone (defender id)

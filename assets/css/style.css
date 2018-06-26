@@ -8,6 +8,7 @@ html {
 
 body {
     color: white;
+    padding-left: 5px;
 }
 div {
     padding-top: 10px;
@@ -31,21 +32,26 @@ text-align: right;
 
 .img {
 height: 100%;
-width: 80%;
+width: 100%;
+padding-right: 5%;
+padding-left: 5%;
 }
 
 #characterHolder {
 padding-bottom: 20px;
+font-size: 10px;
 }
 
 #enemiesAvailable {
 padding-top: 20px;
 padding-bottom: 20px;
+font-size: 10px;
 }
 
 #defender {
 padding-top: 20px;
 padding-bottom: 20px;
+font-size: 10px;
 }
 
 .hidden {
