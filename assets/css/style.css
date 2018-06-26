@@ -20,13 +20,21 @@ text-align: right;
 }
 
 #container {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 50px;
     font-size: 25px;
 }
 
-#characters {
-padding-top: 20px;
+.centered {
+    text-align: center;
+}
+
+.img {
+height: 100%;
+width: 80%;
+}
+
+#characterHolder {
 padding-bottom: 20px;
 }
 

@@ -29,7 +29,7 @@ characters = [
     },
 ];
 
-// append characters into html (characters id)
+// append characters into html (characters class)
 
 //change class on click of character
 //send other three characters to enemy character section (enemiesAvailable id)
