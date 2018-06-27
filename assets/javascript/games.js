@@ -1,4 +1,20 @@
-characters = [
+var characters, gameState
+
+/* RESET FUNCTIONS */
+
+// startGame acts as primary reset function.
+// it is called at the bottom of the file to start the game.
+function startGame () {
+  // resets the game to original state;
+  characters = resetCharacters()
+  gameState = resetGameState()
+
+  // renders characters
+  renderCharacters()
+}
+
+function resetCharacters () {
+return characters = [
     {
         name: "Winston",
         image: "assets/images/winston.jpg",
@@ -29,11 +45,18 @@ characters = [
     },
 ];
 
-for (var i = 0; i < characters.length; i++) {
-    $(this.name).load().addClass(".characterName").appendTo(".characterName");
-    $(this.image).load().addClass(".img").appendTo(".img");
-    $(this.health).load().addClass(".healthPoints").appendTo(".healthPoints");
-};
+/* RENDERING FUNCTIONS */
+
+// helpful for creating divs dynamically.
+function createCharDiv (character, key) {
+    // NOTE: data-name is necessary in charDiv so we can back reference in generic clickHandlers.
+    var charDiv = $("<div class='character' data-name='" + key + "'>")
+    var charName = $("<div class='character-name'>").text(characters.name)
+    var charImage = $("<img alt='image' class='character-image'>").attr('src', characters.image)
+    var charHealth = $("<div class='character-health'>").text(characters.health)
+    charDiv.append(charName).append(charImage).append(charHealth)
+    return charDiv
+  }
 
 // append characters into html (characters class)
 // classes are img, healthPoints, characterName
