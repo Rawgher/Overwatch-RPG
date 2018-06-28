@@ -26,18 +26,36 @@ text-align: right;
     font-size: 25px;
 }
 
-.centered {
+.character {
+    float: left;
+    padding: .5em;
+    width: 25%;
+    border: solid 1px #ffb700;
+    display: block;
+}
+
+.characterName {
+    float: left;
+    padding: .5em;
+    width: 100%;
     text-align: center;
 }
 
-.img {
+.characterimage {
 height: 100%;
 width: 100%;
 padding-right: 5%;
 padding-left: 5%;
 }
 
-#characterHolder {
+.healthPoints {
+    float: left;
+    padding: .5em;
+    width: 100%;
+    text-align: center;
+}
+
+/* #characterHolder {
 padding-bottom: 20px;
 font-size: 10px;
 }
@@ -52,7 +70,7 @@ font-size: 10px;
 padding-top: 20px;
 padding-bottom: 20px;
 font-size: 10px;
-}
+} */
 
 .hidden {
     display: none;
