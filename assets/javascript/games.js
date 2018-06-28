@@ -1,16 +1,12 @@
 var characters, gameState
 
-/* RESET FUNCTIONS */
 
-// startGame acts as primary reset function.
-// it is called at the bottom of the file to start the game.
 function startGame () {
-  // resets the game to original state;
-  characters = resetCharacters()
-  gameState = resetGameState()
 
-  // renders characters
-  renderCharacters()
+  characters = resetCharacters();
+  gameState = resetGame();
+
+  displayCharacters();
 }
 
 function resetCharacters () {
@@ -44,20 +40,33 @@ return characters = [
         health: 400
     },
 ];
+function resetGame () {
+    return {
+        selectedCharacter: null,
+        selectedDefender: null,
+        enemiesLeft: 0,
+        numAttacks: 0
+    }
+}
 
-/* RENDERING FUNCTIONS */
-
-// helpful for creating divs dynamically.
-function createCharDiv (character, key) {
-    // NOTE: data-name is necessary in charDiv so we can back reference in generic clickHandlers.
-    var charDiv = $("<div class='character' data-name='" + key + "'>")
-    var charName = $("<div class='character-name'>").text(characters.name)
-    var charImage = $("<img alt='image' class='character-image'>").attr('src', characters.image)
-    var charHealth = $("<div class='character-health'>").text(characters.health)
-    charDiv.append(charName).append(charImage).append(charHealth)
-    return charDiv
+function createCharacterDiv (character, key) {
+    var characterDiv = $("<div class='character' data-name='" + key + "'>");
+    var charName = $("<div class='characterName'>").text(characters.name);
+    var charImage = $("<img alt='image' class='characterImage'>").attr('src', characters.image);
+    var charHealth = $("<div class='healthPoints'>").text(characters.health);
+    charDiv.append(charName).append(charImage).append(charHealth);
+    return characterDiv;
   }
 
+function displayCharacters() {
+    var keys = Object.keys(characters)
+    for (var i = 0; i < keys.length; i++) {
+        var characterArray = keys[i];
+        var characters = characters[characterArray];
+        var characterDiv = createCharacterDiv(character, key);
+        $("#characterHolder").append(characterDiv);
+    }
+}
 // append characters into html (characters class)
 // classes are img, healthPoints, characterName
 //change class on click of character
