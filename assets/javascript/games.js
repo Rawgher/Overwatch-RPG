@@ -112,7 +112,33 @@ function didIWin() {
 }
 
 function areBattlesOver() {
+if (didIDie(gameState.selectedCharacter)) {
+    alert(gameState.selectedOpponent.name + "pwned you n00b. Click the reset button to show them who's boss next time.");
+    $("#characterHolder").empty();
+    $("#reset").show();
 
+    return true;
+} else if {
+    gameState.enemiesLeft--
+    $("#defender").empty();
+
+    if (didIWin()) {
+        alert("You win! Hit the reset button to play again!");
+        $("#reset").show();
+    } else {
+        alert(gameState.selectedOpponent.name + "pwned you n00b. Click the reset button to show them who's boss next time.");
+        selectOpponent();
+    }
+    return true;
+}
+return false;
+}
+
+function emptyAllDivs() {
+    $("#characterHolder").empty();
+    $("#enemiesAvailable").empty();
+    $("#defender").empty();
+    //add origninal div holder then set it to .show();
 }
 // append characters into html (characters class)
 // classes are img, healthPoints, characterName
