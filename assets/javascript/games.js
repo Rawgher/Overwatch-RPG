@@ -47,16 +47,16 @@ function resetGame () {
     return {
         selectedCharacter: null,
         selectedOpponent: null,
-        enemiesLeft: 0,
+        opponentsLeft: 0,
         numAtks: 0
     }
 }
 
-function createCharacterDiv (character, key) {
+function createCharacterDiv (characters, key) {
     var characterDiv = $("<div class='character' data-name='" + key + "'>");
-    var characterName = $("<div class='characterName'>").text(character.name);
-    var characterImage = $("<img alt='image' class='characterImage'>").attr('src', character.image);
-    var characterHealth = $("<div class='healthPoints'>").text(character.health);
+    var characterName = $("<div class='characterName'>").text(characters.name);
+    var characterImage = $("<img alt='image' class='characterImage'>").attr('src', characters.image);
+    var characterHealth = $("<div class='healthPoints'>").text(characters.health);
     characterDiv.append(characterName).append(characterImage).append(characterHealth);
     return characterDiv;
   }
@@ -80,45 +80,44 @@ function displayCharacters() {
 
 function changeToOpponent (selectedCharacterKey) {
     var characterKeys = Object.keys(characters);
-    console.log("is this running?"); //working
+     //working
     for (var i = 0; i < characterKeys.length; i++) {
-        console.log("this is after the for loop"); //working
+        //working
         if (characterKeys[i] !== selectedCharacterKey) {
-            console.log("after the if statement"); //working
+            //working
             var opponentKey = characterKeys[i];
-            console.log("first var of if statement"); //working
+            //working
             var opponent = characters[opponentKey];
-            console.log("second var of if statement"); //working
+            //working
             var opponentDiv = createCharacterDiv(opponent, opponentKey);
-            console.log("third var of if statement"); //working
-            $(opponentDiv).addClass(".enemy");
-            console.log("adding enemy class"); //working
+            //working
+            $(opponentDiv).addClass("enemy");
+ //working
             $("#enemiesAvailable").append(opponentDiv);
-            console.log("appending to enemies div"); //working
+             //working
         }
     }
 }
 
 function selectOpponent () {
-    $(".enemy").on("click.opponentSelect", function (){
+    $(".enemy").on("click.opponentSelect", function () {
         var enemyKey = $(this).attr("data-name");
         gameState.selectedOpponent = characters[enemyKey];
-
         $("#defender").append(this);
-        $("#attack").removeClass(".hidden");
-        $(".see above").off("click.opponentSelect");
-    })
+        $("#attack").removeClass(".hidden").show();
+        $(".enemy").off("click.opponentSelect");
+    });
 }
 
 function attack(numAtks) {
-    gameState.selectedOpponent.health -= gameState.selectedCharacter.attack * numAtks
+    gameState.selectedOpponent.health -= gameState.selectedCharacter.attack * numAtks;
 }
 
 function defend() {
     gameState.selectedCharacter.health -= gameState.selectedOpponent.counterAttack;
 }
 
-function didIDie() {
+function didIDie(character) {
     return character.health <= 0;
 }
 
@@ -130,18 +129,18 @@ function isBattleOver() {
 if (didIDie(gameState.selectedCharacter)) {
     alert(gameState.selectedOpponent.name + "pwned you n00b. Click the reset button to show them who's boss next time.");
     $("#characterHolder").empty();
-    $("#reset").show();
+    $("#reset").removeClass(".hidden").show();
 
     return true;
 } else if (didIDie(gameState.selectedOpponent)) {
-    gameState.enemiesLeft--
+    gameState.opponentsLeft--
     $("#defender").empty();
 
     if (didIWin()) {
         alert("You win! Hit the reset button to play again!");
-        $("#reset").show();
+        $("#reset").removeClass(".hidden").show();
     } else {
-        alert(gameState.selectedOpponent.name + "pwned you n00b. Click the reset button to show them who's boss next time.");
+        alert("You beat " + gameState.selectedOpponent.name + "! Choose a new opponent!");
         selectOpponent();
     }
     return true;
@@ -151,33 +150,27 @@ return false;
 
 function emptyAllDivs() {
     $("#characterHolder").empty();
-    $("#enemiesAvailable").empty();
     $("#defender").empty();
-    $("#chooseCharacter").show();
+    $("#enemiesAvailable .enemy").empty();
+    $("#chooseCharacter").empty().show();
+    $("#characters").show();
 }
 
 $(document).ready(function() {
-    console.log("is the first thing happening?");
+
     $("#chooseCharacter").on("click", ".character", function() {
-        console.log("what is this?");
-        console.log(this);
+
 
         var selectedKey = $(this).attr("data-name");
-        console.log("what is this 2?");
-        console.log(this);
         gameState.selectedCharacter = characters[selectedKey];
-        console.log("whats going on - setting game state of characters selected key");
         $("#characterHolder").append(this);
-        console.log("what is this?");
-        console.log(this);
+
 
         changeToOpponent(selectedKey);
-        console.log("is this happening change to opponent");
-        $(".character-select").hide();
+        $("#characters").hide();
         $("#chooseCharacter").hide();
-        console.log("is choosecharacter being hidden");
 
-        gameState.enemiesLeft = Object.keys(characters).length -1;
+        gameState.opponentsLeft = Object.keys(characters).length -1;
         selectOpponent()
     })
 
