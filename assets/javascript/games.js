@@ -1,3 +1,8 @@
+//to do, add audio files and implement them during fights, on startup and 
+//character selection. 
+
+//to do, add stage selection? - add images and augio to it
+
 var characters, gameState
 
 
@@ -8,13 +13,13 @@ function startGame () {
 
   displayCharacters();
 }
-// startGame works
 
 function resetCharacters () {
 return  {
     "Winston": {
         name: "Winston",
         image: "assets/images/winston.jpg",
+       // audio: "assets/audio/",
         attack: 30,
         counterAttack: 25,
         health: 300
@@ -22,6 +27,7 @@ return  {
     "Reaper": {
         name: "Reaper",
         image: "assets/images/reaper.jpg",
+        // audio: "assets/audio/",
         attack: 20,
         counterAttack: 35,
         health: 200
@@ -29,6 +35,7 @@ return  {
     "Mercy":{
         name: "Mercy",
         image: "assets/images/mercy.jpg",
+        // audio: "assets/audio/",
         attack: 10,
         counterAttack: 15,
         health: 150
@@ -36,6 +43,7 @@ return  {
     "Reinhardt": {
         name: "Reinhardt",
         image: "assets/images/reinhardt.jpg",
+        // audio: "assets/audio/",
         attack: 15,
         counterAttack: 15,
         health: 400
@@ -43,41 +51,39 @@ return  {
     // "Pharah": {
     //     name: "Pharah",
     //     image: "assets/images/pharah-render.png",
-    //     attack: 15,
-    //     counterAttack: 15,
-    //     health: 400
+        // audio: "assets/audio/",
+    //     attack: 20,
+    //     counterAttack: 30,
+    //     health: 200
     // },
     // "Soldier 76": {
     //     name: "Soldier 76",
     //     image: "assets/images/soldier76-render.png",
+        // audio: "assets/audio/",
     //     attack: 15,
-    //     counterAttack: 15,
-    //     health: 400
+    //     counterAttack: 25,
+    //     health: 200
     // },
     // "McCree": {
     //     name: "McCree",
     //     image: "assets/images/mccree-render.png",
-    //     attack: 15,
-    //     counterAttack: 15,
-    //     health: 400
+        // audio: "assets/audio/",
+    //     attack: 30,
+    //     counterAttack: 30,
+    //     health: 200
     // },
     // "Zenyatta": {
     //     name: "Zenyatta",
     //     image: "assets/images/zenyatta-render.png",
+        // audio: "assets/audio/",
     //     attack: 15,
     //     counterAttack: 15,
-    //     health: 400
-    // },
-    // "Zenyatta": {
-    //     name: "Zenyatta",
-    //     image: "assets/images/zenyatta-render.png",
-    //     attack: 15,
-    //     counterAttack: 15,
-    //     health: 400
+    //     health: 150
     // },
     // "Widowmaker": {
     //     name: "Widowmaker",
     //     image: "assets/images/widowmaker-render.png",
+        // audio: "assets/audio/",
     //     attack: 15,
     //     counterAttack: 15,
     //     health: 400
@@ -85,6 +91,7 @@ return  {
     // "Roadhog": {
     //     name: "Roadhog",
     //     image: "assets/images/roadhog-render.png",
+        // audio: "assets/audio/",
     //     attack: 15,
     //     counterAttack: 15,
     //     health: 400
@@ -111,39 +118,24 @@ function createCharacterDiv (characters, key) {
   }
 
 function displayCharacters() {
-    //working
     var keys = Object.keys(characters);
-    //working
     for (var i = 0; i < keys.length; i++) {
-         //working
         var characterKeys = keys[i];
-         //working
         var character = characters[characterKeys];
-         //working
         var characterDiv = createCharacterDiv(character, characterKeys);
-        //working
         $("#chooseCharacter").append(characterDiv);
-        //working
     }
 }
 
 function changeToOpponent (selectedCharacterKey) {
     var characterKeys = Object.keys(characters);
-     //working
     for (var i = 0; i < characterKeys.length; i++) {
-        //working
         if (characterKeys[i] !== selectedCharacterKey) {
-            //working
             var opponentKey = characterKeys[i];
-            //working
             var opponent = characters[opponentKey];
-            //working
             var opponentDiv = createCharacterDiv(opponent, opponentKey);
-            //working
             $(opponentDiv).addClass("enemy");
- //working
             $("#enemiesAvailable").append(opponentDiv);
-             //working
         }
     }
 }
@@ -176,7 +168,7 @@ function didIWin() {
 
 function isBattleOver() {
 if (didIDie(gameState.selectedCharacter)) {
-    alert(gameState.selectedOpponent.name + "pwned you n00b. Click the reset button to show them who's boss next time.");
+    alert(gameState.selectedOpponent.name + " pwned you n00b. Click the reset button to show them who's boss next time.");
     $("#characterHolder").empty();
     $("#reset").removeClass(".hidden").show();
 
@@ -200,7 +192,7 @@ return false;
 function emptyAllDivs() {
     $("#characterHolder").empty();
     $("#defender").empty();
-    $("#enemiesAvailable .enemy").empty();
+    $("#enemiesAvailable").empty();
     $("#chooseCharacter").empty().show();
     $("#characters").show();
 }
@@ -208,14 +200,11 @@ function emptyAllDivs() {
 $(document).ready(function() {
 
     $("#chooseCharacter").on("click", ".character", function() {
-
-
         var selectedKey = $(this).attr("data-name");
         gameState.selectedCharacter = characters[selectedKey];
         $("#characterHolder").append(this);
 
-
-        changeToOpponent(selectedKey);
+         changeToOpponent(selectedKey);
         $("#characters").hide();
         $("#chooseCharacter").hide();
 
