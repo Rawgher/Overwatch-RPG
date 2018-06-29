@@ -40,6 +40,55 @@ return  {
         counterAttack: 15,
         health: 400
     },
+    // "Pharah": {
+    //     name: "Pharah",
+    //     image: "assets/images/pharah-render.png",
+    //     attack: 15,
+    //     counterAttack: 15,
+    //     health: 400
+    // },
+    // "Soldier 76": {
+    //     name: "Soldier 76",
+    //     image: "assets/images/soldier76-render.png",
+    //     attack: 15,
+    //     counterAttack: 15,
+    //     health: 400
+    // },
+    // "McCree": {
+    //     name: "McCree",
+    //     image: "assets/images/mccree-render.png",
+    //     attack: 15,
+    //     counterAttack: 15,
+    //     health: 400
+    // },
+    // "Zenyatta": {
+    //     name: "Zenyatta",
+    //     image: "assets/images/zenyatta-render.png",
+    //     attack: 15,
+    //     counterAttack: 15,
+    //     health: 400
+    // },
+    // "Zenyatta": {
+    //     name: "Zenyatta",
+    //     image: "assets/images/zenyatta-render.png",
+    //     attack: 15,
+    //     counterAttack: 15,
+    //     health: 400
+    // },
+    // "Widowmaker": {
+    //     name: "Widowmaker",
+    //     image: "assets/images/widowmaker-render.png",
+    //     attack: 15,
+    //     counterAttack: 15,
+    //     health: 400
+    // },
+    // "Roadhog": {
+    //     name: "Roadhog",
+    //     image: "assets/images/roadhog-render.png",
+    //     attack: 15,
+    //     counterAttack: 15,
+    //     health: 400
+    // },
 };
 };
 

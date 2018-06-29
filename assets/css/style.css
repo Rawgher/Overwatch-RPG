@@ -29,6 +29,7 @@ text-align: right;
 .character {
     float: left;
     padding: .5em;
+    /* width: 10%; */
     width: 25%;
     border: solid 1px #ffb700;
     display: block;
