@@ -89,12 +89,12 @@ function changeToOpponent (selectedCharacterKey) {
             console.log("first var of if statement"); //working
             var opponent = characters[opponentKey];
             console.log("second var of if statement"); //working
-            var opponentDiv = createCharacterDiv(opponent, oppenentKey);
-            console.log("third var of if statement");
+            var opponentDiv = createCharacterDiv(opponent, opponentKey);
+            console.log("third var of if statement"); //working
             $(opponentDiv).addClass("enemy");
-            console.log("adding enemy class");
+            console.log("adding enemy class"); //working
             $("#enemiesAvailable").append(opponentDiv);
-            console.log("appending to enemies div");
+            console.log("appending to enemies div"); //working
         }
     }
 }
@@ -166,11 +166,16 @@ $(document).ready(function() {
         console.log("what is this 2?");
         console.log(this);
         gameState.selectedCharacter = characters[selectedKey];
-
+        console.log("whats going on - setting game state of characters selected key");
         $("#characterHolder").append(this);
+        console.log("what is this?");
+        console.log(this);
 
         changeToOpponent(selectedKey);
+        console.log("is this happening change to opponent");
+        $(".character-select").hide();
         $("#chooseCharacter").hide();
+        console.log("is choosecharacter being hidden");
 
         gameState.enemiesLeft = Object.keys(characters).length -1;
         selectOpponent()
