@@ -2,6 +2,51 @@
 //character selection. 
 
 //to do, add stage selection? - add images and augio to it
+//$('html').css('background-image', 'url(../images/.jpg)');
+
+// var backgrounds = {
+//     "Temple of Anubis": {
+//         name: "Temple of Anubis",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+//     "Eichenwalde": {
+//         name: "Eichenwalde",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+//     "Hanamura": {
+//         name: "Hanamura",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+//     "Hollywood": {
+//         name: "Hollywood",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+//     "Volskaya Industries": {
+//         name: "Volskaya Industries",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+//     "King's Row": {
+//         name: "King's Row",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+//     "Route 66": {
+//         name: "Route 66",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+//     "Doragdo": {
+//         name: "Dorado",
+//         image: "assets/images/.jpg",
+//         audio: "assets/audio/."
+//     },
+// }
+
 
 var characters, gameState
 
