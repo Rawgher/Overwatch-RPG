@@ -91,7 +91,7 @@ function changeToOpponent (selectedCharacterKey) {
             console.log("second var of if statement"); //working
             var opponentDiv = createCharacterDiv(opponent, opponentKey);
             console.log("third var of if statement"); //working
-            $(opponentDiv).addClass("enemy");
+            $(opponentDiv).addClass(".enemy");
             console.log("adding enemy class"); //working
             $("#enemiesAvailable").append(opponentDiv);
             console.log("appending to enemies div"); //working
