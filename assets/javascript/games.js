@@ -62,31 +62,39 @@ function createCharacterDiv (character, key) {
   }
 
 function displayCharacters() {
-    console.log("first line of displayCharacters");
+    //working
     var keys = Object.keys(characters);
-    console.log("before the for loop");
+    //working
     for (var i = 0; i < keys.length; i++) {
-        console.log("in the loop");
+         //working
         var characterKeys = keys[i];
-        console.log("first line of loop");
+         //working
         var character = characters[characterKeys];
-        console.log("second line of loop");
+         //working
         var characterDiv = createCharacterDiv(character, characterKeys);
-        console.log("third line of loop");
+        //working
         $("#chooseCharacter").append(characterDiv);
-        console.log("last line of loop");
+        //working
     }
 }
 
 function changeToOpponent (selectedCharacterKey) {
     var characterKeys = Object.keys(characters);
-    for (var i = 0; i < charactersKeys.length; i++) {
+    console.log("is this running?"); //working
+    for (var i = 0; i < characterKeys.length; i++) {
+        console.log("this is after the for loop"); //working
         if (characterKeys[i] !== selectedCharacterKey) {
+            console.log("after the if statement"); //working
             var opponentKey = characterKeys[i];
+            console.log("first var of if statement"); //working
             var opponent = characters[opponentKey];
+            console.log("second var of if statement"); //working
             var opponentDiv = createCharacterDiv(opponent, oppenentKey);
+            console.log("third var of if statement");
             $(opponentDiv).addClass("enemy");
+            console.log("adding enemy class");
             $("#enemiesAvailable").append(opponentDiv);
+            console.log("appending to enemies div");
         }
     }
 }
