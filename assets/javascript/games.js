@@ -65,8 +65,8 @@ function resetCharacters () {
 return  {
     "Winston": {
         name: "Winston",
-        image: "assets/images/winston.jpg",
-        // image: "assets/images/winston-render.png",
+         image: "assets/images/winston.jpg",
+        //image: "assets/images/winston-render.png",
        // audio: "assets/audio/",
         attack: 30,
         counterAttack: 25,
@@ -159,6 +159,14 @@ function resetGame () {
     }
 }
 
+//background function
+// need to hide the character divs (might happen lower down in code)
+// need to append images 
+// need to make them clickable
+// need to make it change background on click 
+// need to hide this section on click
+//need to make character div show again (might happen lower down in code)
+
 function createCharacterDiv (characters, key) {
     var characterDiv = $("<div class='character' data-name='" + key + "'>");
     var characterName = $("<div class='characterName'>").text(characters.name);
@@ -246,6 +254,7 @@ function emptyAllDivs() {
     $("#enemiesAvailable").empty();
     $("#chooseCharacter").empty().show();
     $("#characters").show();
+    //need to edit to show background choices
 }
 
 $(document).ready(function() {
@@ -269,10 +278,10 @@ $(document).ready(function() {
         gameState.numAtks++
         attack(gameState.numAtks);
         defend();
-
+// add combat text here?
         $("#characterHolder .healthPoints").text(gameState.selectedCharacter.health);
         $("#defender .healthPoints").text(gameState.selectedOpponent.health);
-
+// add combat text here?
         if (isBattleOver()) {
             $(this).hide();
         }
