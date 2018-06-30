@@ -37,12 +37,12 @@
 //     },
 //     "Route 66": {
 //         name: "Route 66",
-//         image: "assets/images/.jpg",
+//         image: "assets/images/route-66.jpg",
 //         audio: "assets/audio/."
 //     },
-//     "Doragdo": {
+//     "Dorado": {
 //         name: "Dorado",
-//         image: "assets/images/.jpg",
+//         image: "assets/images/dorado.jpg",
 //         audio: "assets/audio/."
 //     },
 // }
@@ -64,6 +64,7 @@ return  {
     "Winston": {
         name: "Winston",
         image: "assets/images/winston.jpg",
+        // image: "assets/images/winston-render.png",
        // audio: "assets/audio/",
         attack: 30,
         counterAttack: 25,
@@ -72,6 +73,7 @@ return  {
     "Reaper": {
         name: "Reaper",
         image: "assets/images/reaper.jpg",
+        // image: "assets/images/reaper-render.png",
         // audio: "assets/audio/",
         attack: 20,
         counterAttack: 35,
@@ -80,6 +82,7 @@ return  {
     "Mercy":{
         name: "Mercy",
         image: "assets/images/mercy.jpg",
+        // image: "assets/images/mercy-render.png",
         // audio: "assets/audio/",
         attack: 10,
         counterAttack: 15,
@@ -88,6 +91,7 @@ return  {
     "Reinhardt": {
         name: "Reinhardt",
         image: "assets/images/reinhardt.jpg",
+        // image: "assets/images/reinhardt-render.png",
         // audio: "assets/audio/",
         attack: 15,
         counterAttack: 15,
