@@ -5,6 +5,10 @@
 // add battle sounds
 // add character sounds 
 
+//use to play audio
+// https://stackoverflow.com/questions/8489710/play-an-audio-file-using-jquery-when-a-button-is-clicked
+//$("#myAudioElement")[0].play();
+
 
 // var backgrounds = {
 //     "Temple of Anubis": {
