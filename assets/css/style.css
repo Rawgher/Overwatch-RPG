@@ -6,6 +6,28 @@ html {
   background-size: cover;
 }
 
+.background {
+    float: left;
+    /* padding: .5em; */
+    /* width: 10%; */
+    width: 25%;
+    display: block;
+}
+
+.backgroundImage {
+    height: 200px;
+    width: 350px;
+    padding-right: 2.5%;
+    padding-left: 2.5%;
+    }
+
+.backgroundName {
+    float: left;
+    padding: .5em;
+    width: 100%;
+    text-align: center;
+}
+
 body {
     color: white;
     padding-left: 5px;

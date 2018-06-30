@@ -13,63 +13,65 @@
 
 
 
-var characters, gameState
+var backgrounds, characters, gameState
 
 
 
 function startGame () {
-   // backgrounds = resetBackgrounds();
+    backgrounds = resetBackgrounds();
     characters = resetCharacters();
     gameState = resetGame();
 
-   // displayBackgrounds();
+
+    displayBackgrounds();
     displayCharacters();
+
 }
 
-// function resetBackgrounds () {
-//     return {
-//         "Temple of Anubis": {
-//             name: "Temple of Anubis",
-//             image: "../images/temple-of-anubis.jpg",
-//     //        audio: "assets/audio/temple-of-anubis.ogg"
-//         },
-//         "Eichenwalde": {
-//             name: "Eichenwalde",
-//             image: "../images/eichenwalde.jpg",
-//     //        audio: "assets/audio/eichenwalde.ogg"
-//         },
-//         "Hanamura": {
-//             name: "Hanamura",
-//             image: "../images/hanamura.jpg",
-//     //        audio: "assets/audio/hanamura.ogg"
-//         },
-//         "Hollywood": {
-//             name: "Hollywood",
-//             image: "../images/hollywood.jpg",
-//     //        audio: "assets/audio/hollywood.ogg"
-//         },
-//         "Volskaya Industries": {
-//             name: "Volskaya Industries",
-//             image: "../images/volskaya-industries.jpg",
-//     //        audio: "assets/audio/volskaya-industries.ogg"
-//         },
-//         "King's Row": {
-//             name: "King's Row",
-//             image: "../images/kings-row.jpg",
-//     //        audio: "assets/audio/kings-row.ogg"
-//         },
-//         "Route 66": {
-//             name: "Route 66",
-//             image: "../images/route-66.jpg",
-//     //        audio: "assets/audio/route-66.ogg"
-//         },
-//         "Dorado": {
-//             name: "Dorado",
-//             image: "../images/dorado.jpg",
-//     //        audio: "assets/audio/dorado.ogg"
-//         },
-//     }
-// }
+function resetBackgrounds () {
+    return {
+        "Temple of Anubis": {
+            name: "Temple of Anubis",
+            image: "assets/images/temple-of-anubis.jpg",
+    //        audio: "assets/audio/temple-of-anubis.ogg"
+        },
+        "Eichenwalde": {
+            name: "Eichenwalde",
+            image: "assets/images/eichenwalde.jpg",
+    //        audio: "assets/audio/eichenwalde.ogg"
+        },
+        "Hanamura": {
+            name: "Hanamura",
+            image: "assets/images/hanamura.jpg",
+    //        audio: "assets/audio/hanamura.ogg"
+        },
+        "Hollywood": {
+            name: "Hollywood",
+            image: "assets/images/hollywood.jpg",
+    //        audio: "assets/audio/hollywood.ogg"
+        },
+        "Volskaya Industries": {
+            name: "Volskaya Industries",
+            image: "assets/images/volskaya-industries.jpg",
+    //        audio: "assets/audio/volskaya-industries.ogg"
+        },
+        "King's Row": {
+            name: "King's Row",
+            image: "assets/images/kings-row.jpg",
+    //        audio: "assets/audio/kings-row.ogg"
+        },
+        "Route 66": {
+            name: "Route 66",
+            image: "assets/images/route-66.jpg",
+    //        audio: "assets/audio/route-66.ogg"
+        },
+        "Dorado": {
+            name: "Dorado",
+            image: "assets/images/dorado.jpg",
+    //        audio: "assets/audio/dorado.ogg"
+        },
+    }
+}
 function resetCharacters () {
 return  {
     "Winston": {
@@ -169,14 +171,14 @@ function resetGame () {
 }
 
 //background div
-// function createBackgroundDiv(backgrounds, key) {
-//     console.log("running?");
-//     var backgroundDiv = $("<div class='background' data-name='" + key + "'>");
-//     var backgroundImage = $("<img alt='background' class='backgroundImage'>").attr('src', backgrounds.image);
-//     var backgroundName = $("<div class='backgroundName'>").text(backgrounds.name);
-//     backgroundDiv.append(backgroundImage).append(backgroundName);
-//     return backgroundDiv;
-// }
+function createBackgroundDiv(backgrounds, key) {
+    console.log("running?");
+    var backgroundDiv = $("<div class='background' data-name='" + key + "'>");
+    var backgroundImage = $("<img alt='background' class='backgroundImage'>").attr('src', backgrounds.image);
+    var backgroundName = $("<div class='backgroundName'>").text(backgrounds.name);
+    backgroundDiv.append(backgroundImage).append(backgroundName);
+    return backgroundDiv;
+}
 
 
 function createCharacterDiv (characters, key) {
@@ -188,15 +190,15 @@ function createCharacterDiv (characters, key) {
     return characterDiv;
   }
 
-// function displayBackgrounds () {
-//     var keys = Object.keys(backgrounds);
-//     for (var i = 0; i < keys.length; i++) {
-//         var backgroundKeys = keys[i];
-//         var backgrounds = backgrounds[backgroundKeys];
-//         var backgroundDiv = createBackgroundDiv(backgrounds, backgroundKeys);
-//         $("#backgroundHolder").append(backgroundDiv);
-//     }
-// }
+function displayBackgrounds () {
+    var keys = Object.keys(backgrounds);
+    for (var i = 0; i < keys.length; i++) {
+        var backgroundKeys = keys[i];
+        var background = backgrounds[backgroundKeys];
+        var backgroundDiv = createBackgroundDiv(background, backgroundKeys);
+        $("#backgroundHolder").append(backgroundDiv);
+    }
+}
 // need to hide the character divs (might happen lower down in code)
 // need to append images 
 // need to make them clickable
