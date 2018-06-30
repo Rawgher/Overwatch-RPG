@@ -1,48 +1,50 @@
-//to do, add audio files and implement them during fights, on startup and 
-//character selection. 
-
 //to do, add stage selection? - add images and augio to it
-//$('html').css('background-image', 'url(../images/.jpg)');
+//$('html').css('background-image', 'url(this.image)');
+
+// need to make map select function
+// add battle sounds
+// add character sounds 
+
 
 // var backgrounds = {
 //     "Temple of Anubis": {
 //         name: "Temple of Anubis",
-//         image: "assets/images/temple-of-anubis.jpg",
+//         image: "../images/temple-of-anubis.jpg",
 //         audio: "assets/audio/temple-of-anubis.ogg"
 //     },
 //     "Eichenwalde": {
 //         name: "Eichenwalde",
-//         image: "assets/images/eichenwalde.jpg",
+//         image: "../images/eichenwalde.jpg",
 //         audio: "assets/audio/eichenwalde.ogg"
 //     },
 //     "Hanamura": {
 //         name: "Hanamura",
-//         image: "assets/images/hanamura.jpg",
+//         image: "../images/hanamura.jpg",
 //         audio: "assets/audio/hanamura.ogg"
 //     },
 //     "Hollywood": {
 //         name: "Hollywood",
-//         image: "assets/images/hollywood.jpg",
+//         image: "../images/hollywood.jpg",
 //         audio: "assets/audio/hollywood.ogg"
 //     },
 //     "Volskaya Industries": {
 //         name: "Volskaya Industries",
-//         image: "assets/images/volskaya-industries.jpg",
+//         image: "../images/volskaya-industries.jpg",
 //         audio: "assets/audio/volskaya-industries.ogg"
 //     },
 //     "King's Row": {
 //         name: "King's Row",
-//         image: "assets/images/kings-row.jpg",
+//         image: "../images/kings-row.jpg",
 //         audio: "assets/audio/kings-row.ogg"
 //     },
 //     "Route 66": {
 //         name: "Route 66",
-//         image: "assets/images/route-66.jpg",
+//         image: "../images/route-66.jpg",
 //         audio: "assets/audio/route-66.ogg"
 //     },
 //     "Dorado": {
 //         name: "Dorado",
-//         image: "assets/images/dorado.jpg",
+//         image: "../images/dorado.jpg",
 //         audio: "assets/audio/dorado.ogg"
 //     },
 // }
@@ -99,7 +101,7 @@ return  {
     },
     // "Pharah": {
     //     name: "Pharah",
-    //     image: "assets/images/pharah-render.png",
+        // image: "assets/images/pharah-render.png",
         // audio: "assets/audio/",
     //     attack: 20,
     //     counterAttack: 30,
@@ -247,7 +249,7 @@ function emptyAllDivs() {
 }
 
 $(document).ready(function() {
-
+// map select first?
     $("#chooseCharacter").on("click", ".character", function() {
         var selectedKey = $(this).attr("data-name");
         gameState.selectedCharacter = characters[selectedKey];
@@ -259,6 +261,8 @@ $(document).ready(function() {
 
         gameState.opponentsLeft = Object.keys(characters).length -1;
         selectOpponent()
+
+        //map select here?
     })
 
     $("#attack").on("click.attack", function(){
