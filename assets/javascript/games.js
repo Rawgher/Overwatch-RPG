@@ -10,61 +10,66 @@
 //$("#myAudioElement")[0].play();
 
 
-// var backgrounds = {
-//     "Temple of Anubis": {
-//         name: "Temple of Anubis",
-//         image: "../images/temple-of-anubis.jpg",
-//         audio: "assets/audio/temple-of-anubis.ogg"
-//     },
-//     "Eichenwalde": {
-//         name: "Eichenwalde",
-//         image: "../images/eichenwalde.jpg",
-//         audio: "assets/audio/eichenwalde.ogg"
-//     },
-//     "Hanamura": {
-//         name: "Hanamura",
-//         image: "../images/hanamura.jpg",
-//         audio: "assets/audio/hanamura.ogg"
-//     },
-//     "Hollywood": {
-//         name: "Hollywood",
-//         image: "../images/hollywood.jpg",
-//         audio: "assets/audio/hollywood.ogg"
-//     },
-//     "Volskaya Industries": {
-//         name: "Volskaya Industries",
-//         image: "../images/volskaya-industries.jpg",
-//         audio: "assets/audio/volskaya-industries.ogg"
-//     },
-//     "King's Row": {
-//         name: "King's Row",
-//         image: "../images/kings-row.jpg",
-//         audio: "assets/audio/kings-row.ogg"
-//     },
-//     "Route 66": {
-//         name: "Route 66",
-//         image: "../images/route-66.jpg",
-//         audio: "assets/audio/route-66.ogg"
-//     },
-//     "Dorado": {
-//         name: "Dorado",
-//         image: "../images/dorado.jpg",
-//         audio: "assets/audio/dorado.ogg"
-//     },
-// }
+
 
 
 var characters, gameState
 
 
+
 function startGame () {
+   // backgrounds = resetBackgrounds();
+    characters = resetCharacters();
+    gameState = resetGame();
 
-  characters = resetCharacters();
-  gameState = resetGame();
-
-  displayCharacters();
+   // displayBackgrounds();
+    displayCharacters();
 }
 
+// function resetBackgrounds () {
+//     return {
+//         "Temple of Anubis": {
+//             name: "Temple of Anubis",
+//             image: "../images/temple-of-anubis.jpg",
+//     //        audio: "assets/audio/temple-of-anubis.ogg"
+//         },
+//         "Eichenwalde": {
+//             name: "Eichenwalde",
+//             image: "../images/eichenwalde.jpg",
+//     //        audio: "assets/audio/eichenwalde.ogg"
+//         },
+//         "Hanamura": {
+//             name: "Hanamura",
+//             image: "../images/hanamura.jpg",
+//     //        audio: "assets/audio/hanamura.ogg"
+//         },
+//         "Hollywood": {
+//             name: "Hollywood",
+//             image: "../images/hollywood.jpg",
+//     //        audio: "assets/audio/hollywood.ogg"
+//         },
+//         "Volskaya Industries": {
+//             name: "Volskaya Industries",
+//             image: "../images/volskaya-industries.jpg",
+//     //        audio: "assets/audio/volskaya-industries.ogg"
+//         },
+//         "King's Row": {
+//             name: "King's Row",
+//             image: "../images/kings-row.jpg",
+//     //        audio: "assets/audio/kings-row.ogg"
+//         },
+//         "Route 66": {
+//             name: "Route 66",
+//             image: "../images/route-66.jpg",
+//     //        audio: "assets/audio/route-66.ogg"
+//         },
+//         "Dorado": {
+//             name: "Dorado",
+//             image: "../images/dorado.jpg",
+//     //        audio: "assets/audio/dorado.ogg"
+//         },
+//     }
+// }
 function resetCharacters () {
 return  {
     "Winston": {
@@ -152,7 +157,7 @@ return  {
     //     health: 400
     // },
 };
-};
+}
 
 function resetGame () {
     return {
@@ -163,13 +168,16 @@ function resetGame () {
     }
 }
 
-//background function
-// need to hide the character divs (might happen lower down in code)
-// need to append images 
-// need to make them clickable
-// need to make it change background on click 
-// need to hide this section on click
-//need to make character div show again (might happen lower down in code)
+//background div
+// function createBackgroundDiv(backgrounds, key) {
+//     console.log("running?");
+//     var backgroundDiv = $("<div class='background' data-name='" + key + "'>");
+//     var backgroundImage = $("<img alt='background' class='backgroundImage'>").attr('src', backgrounds.image);
+//     var backgroundName = $("<div class='backgroundName'>").text(backgrounds.name);
+//     backgroundDiv.append(backgroundImage).append(backgroundName);
+//     return backgroundDiv;
+// }
+
 
 function createCharacterDiv (characters, key) {
     var characterDiv = $("<div class='character' data-name='" + key + "'>");
@@ -180,6 +188,21 @@ function createCharacterDiv (characters, key) {
     return characterDiv;
   }
 
+// function displayBackgrounds () {
+//     var keys = Object.keys(backgrounds);
+//     for (var i = 0; i < keys.length; i++) {
+//         var backgroundKeys = keys[i];
+//         var backgrounds = backgrounds[backgroundKeys];
+//         var backgroundDiv = createBackgroundDiv(backgrounds, backgroundKeys);
+//         $("#backgroundHolder").append(backgroundDiv);
+//     }
+// }
+// need to hide the character divs (might happen lower down in code)
+// need to append images 
+// need to make them clickable
+// need to make it change background on click 
+// need to hide this section on click
+//need to make character div show again (might happen lower down in code)
 function displayCharacters() {
     var keys = Object.keys(characters);
     for (var i = 0; i < keys.length; i++) {
@@ -282,10 +305,10 @@ $(document).ready(function() {
         gameState.numAtks++
         attack(gameState.numAtks);
         defend();
-// add combat text here?
+
         $("#characterHolder .healthPoints").text(gameState.selectedCharacter.health);
         $("#defender .healthPoints").text(gameState.selectedOpponent.health);
-// add combat text here?
+
         if (isBattleOver()) {
             $(this).hide();
         }
