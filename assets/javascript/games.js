@@ -7,43 +7,43 @@
 // var backgrounds = {
 //     "Temple of Anubis": {
 //         name: "Temple of Anubis",
-//         image: "assets/images/.jpg",
-//         audio: "assets/audio/."
+//         image: "assets/images/temple-of-anubis.jpg",
+//         audio: "assets/audio/temple-of-anubis.ogg"
 //     },
 //     "Eichenwalde": {
 //         name: "Eichenwalde",
-//         image: "assets/images/.jpg",
-//         audio: "assets/audio/."
+//         image: "assets/images/eichenwalde.jpg",
+//         audio: "assets/audio/eichenwalde.ogg"
 //     },
 //     "Hanamura": {
 //         name: "Hanamura",
-//         image: "assets/images/.jpg",
-//         audio: "assets/audio/."
+//         image: "assets/images/hanamura.jpg",
+//         audio: "assets/audio/hanamura.ogg"
 //     },
 //     "Hollywood": {
 //         name: "Hollywood",
-//         image: "assets/images/.jpg",
-//         audio: "assets/audio/."
+//         image: "assets/images/hollywood.jpg",
+//         audio: "assets/audio/hollywood.ogg"
 //     },
 //     "Volskaya Industries": {
 //         name: "Volskaya Industries",
-//         image: "assets/images/.jpg",
-//         audio: "assets/audio/."
+//         image: "assets/images/volskaya-industries.jpg",
+//         audio: "assets/audio/volskaya-industries.ogg"
 //     },
 //     "King's Row": {
 //         name: "King's Row",
-//         image: "assets/images/.jpg",
-//         audio: "assets/audio/."
+//         image: "assets/images/kings-row.jpg",
+//         audio: "assets/audio/kings-row.ogg"
 //     },
 //     "Route 66": {
 //         name: "Route 66",
 //         image: "assets/images/route-66.jpg",
-//         audio: "assets/audio/."
+//         audio: "assets/audio/route-66.ogg"
 //     },
 //     "Dorado": {
 //         name: "Dorado",
 //         image: "assets/images/dorado.jpg",
-//         audio: "assets/audio/."
+//         audio: "assets/audio/dorado.ogg"
 //     },
 // }
 
