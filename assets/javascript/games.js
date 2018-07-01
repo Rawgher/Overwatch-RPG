@@ -24,51 +24,58 @@ function startGame () {
 
 
     displayBackgrounds();
-    displayCharacters();
 
 }
 
 function resetBackgrounds () {
     return {
-        "Temple of Anubis": {
+        "Anubis": {
             name: "Temple of Anubis",
             image: "assets/images/temple-of-anubis.jpg",
-    //        audio: "assets/audio/temple-of-anubis.ogg"
+            cssURL: "../images/temple-of-anubis.jpg",
+            audio: "assets/audio/temple-of-anubis.ogg"
         },
         "Eichenwalde": {
             name: "Eichenwalde",
             image: "assets/images/eichenwalde.jpg",
-    //        audio: "assets/audio/eichenwalde.ogg"
+            cssURL: "../images/eichenwalde.jpg",
+            audio: "assets/audio/eichenwalde.ogg"
         },
         "Hanamura": {
             name: "Hanamura",
             image: "assets/images/hanamura.jpg",
-    //        audio: "assets/audio/hanamura.ogg"
+            cssURL: "../images/hanamura.jpg",
+            audio: "assets/audio/hanamura.ogg"
         },
         "Hollywood": {
             name: "Hollywood",
             image: "assets/images/hollywood.jpg",
-    //        audio: "assets/audio/hollywood.ogg"
+            cssURL: "../images/hollywood.jpg",
+            audio: "assets/audio/hollywood.ogg"
         },
-        "Volskaya Industries": {
+        "Volskaya": {
             name: "Volskaya Industries",
             image: "assets/images/volskaya-industries.jpg",
-    //        audio: "assets/audio/volskaya-industries.ogg"
+            cssURL: "../images/volskaya-industries.jpg",
+            audio: "assets/audio/volskaya-industries.ogg"
         },
-        "King's Row": {
+        "Kings": {
             name: "King's Row",
             image: "assets/images/kings-row.jpg",
-    //        audio: "assets/audio/kings-row.ogg"
+            cssURL: "../images/kings-row.jpg",
+            audio: "assets/audio/kings-row.ogg"
         },
         "Route 66": {
             name: "Route 66",
             image: "assets/images/route-66.jpg",
-    //        audio: "assets/audio/route-66.ogg"
+            cssURL: "../images/route-66.jpg",
+            audio: "assets/audio/route-66.ogg"
         },
         "Dorado": {
             name: "Dorado",
             image: "assets/images/dorado.jpg",
-    //        audio: "assets/audio/dorado.ogg"
+            cssURL: "../images/dorado.jpg",
+            audio: "assets/audio/dorado.ogg"
         },
     }
 }
@@ -163,6 +170,7 @@ return  {
 
 function resetGame () {
     return {
+        selectedBackground: null,
         selectedCharacter: null,
         selectedOpponent: null,
         opponentsLeft: 0,
@@ -170,13 +178,12 @@ function resetGame () {
     }
 }
 
-//background div
 function createBackgroundDiv(backgrounds, key) {
-    console.log("running?");
-    var backgroundDiv = $("<div class='background' data-name='" + key + "'>");
+    var backgroundDiv = $("<div class='background' data-name=" + key + ">");
     var backgroundImage = $("<img alt='background' class='backgroundImage'>").attr('src', backgrounds.image);
     var backgroundName = $("<div class='backgroundName'>").text(backgrounds.name);
-    backgroundDiv.append(backgroundImage).append(backgroundName);
+    var backgroundSound = $("<audio><source src='" + backgrounds.audio + "'></source></audio>");
+    backgroundDiv.append(backgroundImage).append(backgroundName).append(backgroundSound);
     return backgroundDiv;
 }
 
@@ -186,7 +193,8 @@ function createCharacterDiv (characters, key) {
     var characterName = $("<div class='characterName'>").text(characters.name);
     var characterImage = $("<img alt='image' class='characterImage'>").attr('src', characters.image);
     var characterHealth = $("<div class='healthPoints'>").text(characters.health);
-    characterDiv.append(characterName).append(characterImage).append(characterHealth);
+    var characterSound = $("<audio><source src='" + characters.audio + "'></source></audio>");
+    characterDiv.append(characterName).append(characterImage).append(characterHealth).append(characterSound);
     return characterDiv;
   }
 
@@ -199,12 +207,7 @@ function displayBackgrounds () {
         $("#backgroundHolder").append(backgroundDiv);
     }
 }
-// need to hide the character divs (might happen lower down in code)
-// need to append images 
-// need to make them clickable
-// need to make it change background on click 
-// need to hide this section on click
-//need to make character div show again (might happen lower down in code)
+
 function displayCharacters() {
     var keys = Object.keys(characters);
     for (var i = 0; i < keys.length; i++) {
@@ -281,15 +284,39 @@ function emptyAllDivs() {
     $("#characterHolder").empty();
     $("#defender").empty();
     $("#enemiesAvailable").empty();
-    $("#chooseCharacter").empty().show();
-    $("#characters").show();
+    $("#chooseCharacter").empty().hide();
+    $("#characters").hide();
     //need to edit to show background choices
 }
 
 $(document).ready(function() {
 // map select first?
+// need to hide the character divs (might happen lower down in code)
+// need to append images 
+// need to make them clickable
+// need to make it change background on click 
+// need to hide this section on click
+//need to make character div show again (might happen lower down in code)
+
+$("#backgroundHolder").on("click", ".background", function (){ 
+    var selectedKey = $(this).attr("data-name");
+    gameState.selectedBackground = backgrounds[selectedKey];
+    console.log(this);
+    console.log("background function happening?");
+    console.log(this)
+   // var images = $(this).find("backgrounds").attr("cssURL");
+    $("html").css("background", ($('option:selected', this).data("cssURL"))); 
+    var audio = $(this).find("audio");
+    audio[0].play();
+    $("#backgroundHolder").hide();
+    $("#chooseCharacter").show();
+    displayCharacters();
+    });
+
     $("#chooseCharacter").on("click", ".character", function() {
+        console.log(this)
         var selectedKey = $(this).attr("data-name");
+        console.log(this);
         gameState.selectedCharacter = characters[selectedKey];
         $("#characterHolder").append(this);
 
@@ -301,7 +328,7 @@ $(document).ready(function() {
         selectOpponent()
 
         //map select here?
-    })
+    });
 
     $("#attack").on("click.attack", function(){
         gameState.numAtks++
