@@ -55,6 +55,7 @@ text-align: right;
     /* width: 10%; */
     width: 25%;
     border: solid 1px gold;
+    background-color: rgba(0,0,0,0.6);
     display: block;
 }
 
