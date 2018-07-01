@@ -16,29 +16,30 @@
     <body>
   <div class="fl w-100" id="title">Overwatch RPG!</div>
   <div class="fl w-100" id="container">
-    <div class="fl w-100">Map Select</div>
-    <div id="backgroundHolder"></div>
+    <div class="fl w-100 mapChoice">Choose a Map</div>
+    <div id="backgroundHolder" class="mapChoice"></div>
     <!-- <div class="fl w-100"> -->
-    <div class="fl w-50">
+    <div class="fl w-100">
         <div class="fl w-100" id="characters">
-            <div class="character-select">Select a Hero</div>
+            <div class="character-select hidden">Select a Hero</div>
             <div id="chooseCharacter"></div>
         </div>
         </div>
-        <div class="fl w-100">Your Character
+        <div class="fl w-100">
+        <div class="fl w-third hidden" id="yourCharacter">Your Character
         <div id="characterHolder"></div>
         </div>
-        <div class="fl w-50" id="enemiesAvailable">
-        <div class="fl w-100">Fight Section</div>
+        <div class="fl w-third"><a class="f6 link dim ph3 pv2 mb2 dib white bg-dark-gray hidden positioning" id="attack" href="#0">Attack</a>
+        <a class="f6 link dim ph3 pv2 mb2 dib white bg-dark-gray hidden positioning z-index" id="reset" href="#0">Reset</a></div>
+        <div class="fl w-third hidden" id="defenderName">Defender
+        <div id="defender"></div>
         </div>
         </div>
-        <div class="fl w-100"><a class="f6 link dim ph3 pv2 mb2 dib white bg-dark-gray hidden" id="attack" href="#0">Attack</a></div>
-        <div class="fl w-100">Defender</div>
-        <div class="fl w-50" id="defender"></div>
-        <div class="fl w-100"><a class="f6 link dim ph3 pv2 mb2 dib white bg-dark-gray hidden" id="reset" href="#0">Reset</a></div>
+        <div class="fl w-100 hidden" id="chooseOne">Choose Your Opponent</div>
+        <div class="fl w-100" id="enemiesAvailable">
+        </div>
+        </div>
     </div>
   </div>
-        
-
     </body>
 </html>

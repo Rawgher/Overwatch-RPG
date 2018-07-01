@@ -32,49 +32,41 @@ function resetBackgrounds () {
         "Anubis": {
             name: "Temple of Anubis",
             image: "assets/images/temple-of-anubis.jpg",
-            cssURL: "../images/temple-of-anubis.jpg",
             audio: "assets/audio/temple-of-anubis.ogg"
         },
         "Eichenwalde": {
             name: "Eichenwalde",
             image: "assets/images/eichenwalde.jpg",
-            cssURL: "../images/eichenwalde.jpg",
             audio: "assets/audio/eichenwalde.ogg"
         },
         "Hanamura": {
             name: "Hanamura",
             image: "assets/images/hanamura.jpg",
-            cssURL: "../images/hanamura.jpg",
             audio: "assets/audio/hanamura.ogg"
         },
         "Hollywood": {
             name: "Hollywood",
             image: "assets/images/hollywood.jpg",
-            cssURL: "../images/hollywood.jpg",
             audio: "assets/audio/hollywood.ogg"
         },
         "Volskaya": {
             name: "Volskaya Industries",
             image: "assets/images/volskaya-industries.jpg",
-            cssURL: "../images/volskaya-industries.jpg",
             audio: "assets/audio/volskaya-industries.ogg"
         },
         "Kings": {
             name: "King's Row",
             image: "assets/images/kings-row.jpg",
-            cssURL: "../images/kings-row.jpg",
             audio: "assets/audio/kings-row.ogg"
         },
-        "Route 66": {
+        "Route": {
             name: "Route 66",
             image: "assets/images/route-66.jpg",
-            cssURL: "../images/route-66.jpg",
             audio: "assets/audio/route-66.ogg"
         },
         "Dorado": {
             name: "Dorado",
             image: "assets/images/dorado.jpg",
-            cssURL: "../images/dorado.jpg",
             audio: "assets/audio/dorado.ogg"
         },
     }
@@ -83,7 +75,7 @@ function resetCharacters () {
 return  {
     "Winston": {
         name: "Winston",
-         image: "assets/images/winston.jpg",
+        image: "assets/images/winston.jpg",
         //image: "assets/images/winston-render.png",
        // audio: "assets/audio/",
         attack: 30,
@@ -93,7 +85,7 @@ return  {
     "Reaper": {
         name: "Reaper",
         image: "assets/images/reaper.jpg",
-        // image: "assets/images/reaper-render.png",
+        //image: "assets/images/reaper-render.png",
         // audio: "assets/audio/",
         attack: 20,
         counterAttack: 35,
@@ -102,7 +94,7 @@ return  {
     "Mercy":{
         name: "Mercy",
         image: "assets/images/mercy.jpg",
-        // image: "assets/images/mercy-render.png",
+        //image: "assets/images/mercy-render.png",
         // audio: "assets/audio/",
         attack: 10,
         counterAttack: 15,
@@ -111,7 +103,7 @@ return  {
     "Reinhardt": {
         name: "Reinhardt",
         image: "assets/images/reinhardt.jpg",
-        // image: "assets/images/reinhardt-render.png",
+        //image: "assets/images/reinhardt-render.png",
         // audio: "assets/audio/",
         attack: 15,
         counterAttack: 15,
@@ -198,6 +190,7 @@ function createCharacterDiv (characters, key) {
     return characterDiv;
   }
 
+
 function displayBackgrounds () {
     var keys = Object.keys(backgrounds);
     for (var i = 0; i < keys.length; i++) {
@@ -237,6 +230,7 @@ function selectOpponent () {
         gameState.selectedOpponent = characters[enemyKey];
         $("#defender").append(this);
         $("#attack").removeClass(".hidden").show();
+        $(this).addClass("defender");
         $(".enemy").off("click.opponentSelect");
     });
 }
@@ -285,49 +279,44 @@ function emptyAllDivs() {
     $("#defender").empty();
     $("#enemiesAvailable").empty();
     $("#chooseCharacter").empty().hide();
-    $("#characters").hide();
-    //need to edit to show background choices
+    $("#character-select").hide();
+    $("#characters").show();
+    $("#backgroundHolder").empty().show();
+    $(".mapChoice").show();
 }
 
 $(document).ready(function() {
-// map select first?
-// need to hide the character divs (might happen lower down in code)
-// need to append images 
-// need to make them clickable
-// need to make it change background on click 
-// need to hide this section on click
-//need to make character div show again (might happen lower down in code)
+
 
 $("#backgroundHolder").on("click", ".background", function (){ 
     var selectedKey = $(this).attr("data-name");
     gameState.selectedBackground = backgrounds[selectedKey];
-    console.log(this);
-    console.log("background function happening?");
-    console.log(this)
-   // var images = $(this).find("backgrounds").attr("cssURL");
-    $("html").css("background", ($('option:selected', this).data("cssURL"))); 
+    $("html").css("background", "url('" + gameState.selectedBackground.image + "') no-repeat center center fixed"); 
     var audio = $(this).find("audio");
     audio[0].play();
     $("#backgroundHolder").hide();
+    $(".mapChoice").hide();
+    $(".character-select").removeClass("hidden");
     $("#chooseCharacter").show();
     displayCharacters();
     });
 
     $("#chooseCharacter").on("click", ".character", function() {
-        console.log(this)
         var selectedKey = $(this).attr("data-name");
-        console.log(this);
         gameState.selectedCharacter = characters[selectedKey];
         $("#characterHolder").append(this);
+        $(this).addClass("yours");
 
          changeToOpponent(selectedKey);
         $("#characters").hide();
         $("#chooseCharacter").hide();
+        $("#yourCharacter").removeClass("hidden");
+        $("#chooseOne").removeClass("hidden");
 
         gameState.opponentsLeft = Object.keys(characters).length -1;
-        selectOpponent()
+        selectOpponent();
+        $("#defenderName").removeClass("hidden");
 
-        //map select here?
     });
 
     $("#attack").on("click.attack", function(){

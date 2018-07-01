@@ -6,6 +6,7 @@ html {
   background-size: cover;
 }
 
+
 .background {
     float: left;
     /* padding: .5em; */
@@ -53,7 +54,7 @@ text-align: right;
     padding: .5em;
     /* width: 10%; */
     width: 25%;
-    border: solid 1px #ffb700;
+    border: solid 1px gold;
     display: block;
 }
 
@@ -65,8 +66,8 @@ text-align: right;
 }
 
 .characterimage {
-height: 100%;
-width: 100%;
+height: 100px;
+width: 100px;
 padding-right: 5%;
 padding-left: 5%;
 }
@@ -78,6 +79,29 @@ padding-left: 5%;
     text-align: center;
 }
 
+
+.defender {
+width: 100%;
+}
+
+.yours {
+width: 100%;
+}
+
+.ph3 {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.pv2 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.positioning {
+    position: relative;
+    top: 190px;
+    left: 200px;
+}
 /* #characterHolder {
 padding-bottom: 20px;
 font-size: 10px;
