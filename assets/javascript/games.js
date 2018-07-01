@@ -77,7 +77,7 @@ return  {
         name: "Winston",
         image: "assets/images/winston.jpg",
         //image: "assets/images/winston-render.png",
-       // audio: "assets/audio/",
+        audio: "assets/audio/winston.m4a",
         attack: 30,
         counterAttack: 25,
         health: 300
@@ -86,7 +86,7 @@ return  {
         name: "Reaper",
         image: "assets/images/reaper.jpg",
         //image: "assets/images/reaper-render.png",
-        // audio: "assets/audio/",
+        audio: "assets/audio/reaper.m4a",
         attack: 20,
         counterAttack: 35,
         health: 200
@@ -95,7 +95,7 @@ return  {
         name: "Mercy",
         image: "assets/images/mercy.jpg",
         //image: "assets/images/mercy-render.png",
-        // audio: "assets/audio/",
+        audio: "assets/audio/mercy.m4a",
         attack: 10,
         counterAttack: 15,
         health: 150
@@ -104,7 +104,7 @@ return  {
         name: "Reinhardt",
         image: "assets/images/reinhardt.jpg",
         //image: "assets/images/reinhardt-render.png",
-        // audio: "assets/audio/",
+        audio: "assets/audio/reinhardt.m4a",
         attack: 15,
         counterAttack: 15,
         health: 400
@@ -232,6 +232,8 @@ function selectOpponent () {
         $("#attack").removeClass(".hidden").show();
         $(this).addClass("defender");
         $(".enemy").off("click.opponentSelect");
+        var audio = $(this).find("audio");
+        audio[0].play();
     });
 }
 
@@ -293,6 +295,7 @@ $("#backgroundHolder").on("click", ".background", function (){
     gameState.selectedBackground = backgrounds[selectedKey];
     $("html").css("background", "url('" + gameState.selectedBackground.image + "') no-repeat center center fixed"); 
     var audio = $(this).find("audio");
+    audio.volume = 0.2;
     audio[0].play();
     $("#backgroundHolder").hide();
     $(".mapChoice").hide();
@@ -305,6 +308,8 @@ $("#backgroundHolder").on("click", ".background", function (){
         var selectedKey = $(this).attr("data-name");
         gameState.selectedCharacter = characters[selectedKey];
         $("#characterHolder").append(this);
+        var audio = $(this).find("audio");
+        audio[0].play();
         $(this).addClass("yours");
 
          changeToOpponent(selectedKey);
