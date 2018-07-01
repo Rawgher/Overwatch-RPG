@@ -233,6 +233,7 @@ function selectOpponent () {
         $(this).addClass("defender");
         $(".enemy").off("click.opponentSelect");
         var audio = $(this).find("audio");
+        audio[0].volume = 1.0;
         audio[0].play();
     });
 }
@@ -295,7 +296,7 @@ $("#backgroundHolder").on("click", ".background", function (){
     gameState.selectedBackground = backgrounds[selectedKey];
     $("html").css("background", "url('" + gameState.selectedBackground.image + "') no-repeat center center fixed"); 
     var audio = $(this).find("audio");
-    audio.volume = 0.2;
+    audio[0].volume = 0.1;
     audio[0].play();
     $("#backgroundHolder").hide();
     $(".mapChoice").hide();
@@ -309,6 +310,7 @@ $("#backgroundHolder").on("click", ".background", function (){
         gameState.selectedCharacter = characters[selectedKey];
         $("#characterHolder").append(this);
         var audio = $(this).find("audio");
+        audio.volume = 1.0;
         audio[0].play();
         $(this).addClass("yours");
 
