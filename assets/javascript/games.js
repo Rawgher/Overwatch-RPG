@@ -282,7 +282,10 @@ function emptyAllDivs() {
     $("#defender").empty();
     $("#enemiesAvailable").empty();
     $("#chooseCharacter").empty().hide();
-    $("#character-select").hide();
+    $(".character-select").hide();
+    $("#yourCharacter").hide();
+    $("#chooseOne").hide();
+    $("#defenderName").hide();
     $("#characters").show();
     $("#backgroundHolder").empty().show();
     $(".mapChoice").show();
