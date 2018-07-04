@@ -1,18 +1,3 @@
-//to do, add stage selection? - add images and augio to it
-//$('html').css('background-image', 'url(this.image)');
-
-// need to make map select function
-// add battle sounds
-// add character sounds 
-
-//use to play audio
-// https://stackoverflow.com/questions/8489710/play-an-audio-file-using-jquery-when-a-button-is-clicked
-//$("#myAudioElement")[0].play();
-
-
-
-
-
 var backgrounds, characters, gameState
 
 
